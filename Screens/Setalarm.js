@@ -194,7 +194,7 @@ const Setalarm = ({navigation}) => {
     return (
       <View style={{}}>
         <TouchableOpacity
-          activeOpacity={0.9}
+          activeOpacity={0.8}
           style={{
             height: 70,
             width: '95%',
@@ -260,7 +260,7 @@ const Setalarm = ({navigation}) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          activeOpacity={0.9}
+          activeOpacity={0.8}
           style={{
             height: 70,
             width: '95%',
@@ -326,7 +326,7 @@ const Setalarm = ({navigation}) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          activeOpacity={0.9}
+          activeOpacity={0.8}
           style={{
             height: 70,
             width: '95%',
