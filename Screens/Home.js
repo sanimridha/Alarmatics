@@ -1,11 +1,26 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
 const Home = () => {
+  const renderHeader = () => {
+    return (
+      <View
+        style={{
+          marginLeft: '2%',
+          height: '10%',
+          // backgroundColor: 'red',
+          justifyContent: 'center',
+        }}>
+        <Text style={{fontSize: 27, fontWeight: 'bold'}}>Upcomming alarms</Text>
+      </View>
+    );
+  };
+
   return (
-    <View>
-      <Text>Home Screen </Text>
-    </View>
+    <>
+      {renderHeader()}
+      <ScrollView></ScrollView>
+    </>
   );
 };
 
