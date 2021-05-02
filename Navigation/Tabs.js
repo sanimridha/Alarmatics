@@ -45,7 +45,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="Setalarm"
         component={Setalarm}
         options={{
           tabBarIcon: ({focused}) => (

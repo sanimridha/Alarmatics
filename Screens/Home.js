@@ -1,10 +1,16 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import CheckBox from 'react-native-check-box';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Dots from 'react-native-vector-icons/Entypo';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [isSelected, setSelection] = useState(false);
 
   const renderHeader = () => {
@@ -95,22 +101,28 @@ const Home = () => {
                   flexDirection: 'row',
                 }}>
                 <View>
-                  <Ionicons
-                    name="alarm"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => navigation.navigate('Setalarm')}>
+                    <Ionicons
+                      name="alarm"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
-                <View>
-                  <Dots
-                    name="dots-three-vertical"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                <View style={{marginLeft: 10}}>
+                  <TouchableOpacity activeOpacity={0.8}>
+                    <Dots
+                      name="dots-three-vertical"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -190,22 +202,28 @@ const Home = () => {
                   flexDirection: 'row',
                 }}>
                 <View>
-                  <Ionicons
-                    name="alarm"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => navigation.navigate('Setalarm')}>
+                    <Ionicons
+                      name="alarm"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
-                <View>
-                  <Dots
-                    name="dots-three-vertical"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                <View style={{marginLeft: 10}}>
+                  <TouchableOpacity activeOpacity={0.8}>
+                    <Dots
+                      name="dots-three-vertical"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -284,22 +302,28 @@ const Home = () => {
                   flexDirection: 'row',
                 }}>
                 <View>
-                  <Ionicons
-                    name="alarm"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => navigation.navigate('Setalarm')}>
+                    <Ionicons
+                      name="alarm"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
-                <View>
-                  <Dots
-                    name="dots-three-vertical"
-                    size={30}
-                    style={{
-                      color: isSelected ? 'black' : '#868B98',
-                    }}
-                  />
+                <View style={{marginLeft: 10}}>
+                  <TouchableOpacity activeOpacity={0.8}>
+                    <Dots
+                      name="dots-three-vertical"
+                      size={30}
+                      style={{
+                        color: isSelected ? 'black' : '#868B98',
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
