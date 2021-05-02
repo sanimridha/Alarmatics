@@ -15,8 +15,9 @@ const Tabs = () => {
       tabBarOptions={{
         showLabel: false,
         style: {
-          backgroundColor: '#E7915B',
-          elevation: 0,
+          backgroundColor: '#F2F2F2',
+          elevation: 5,
+          borderTopWidth: 0,
         },
       }}>
       <Tab.Screen
@@ -28,9 +29,17 @@ const Tabs = () => {
               <Icon
                 name="home"
                 size={30}
-                style={{color: focused ? 'white' : '#CFD6DE'}}
+                style={{
+                  color: focused ? '#F44336' : '#868B98',
+                }}
               />
-              <Text style={{color: focused ? 'white' : '#CFD6DE'}}>Home</Text>
+              <Text
+                style={{
+                  color: focused ? '#F44336' : '#868B98',
+                  fontWeight: focused ? 'bold' : 'normal',
+                }}>
+                Home
+              </Text>
             </View>
           ),
         }}
@@ -44,9 +53,13 @@ const Tabs = () => {
               <Icon
                 name="access-alarm"
                 size={30}
-                style={{color: focused ? 'white' : '#CFD6DE'}}
+                style={{color: focused ? '#F44336' : '#868B98'}}
               />
-              <Text style={{color: focused ? 'white' : '#CFD6DE'}}>
+              <Text
+                style={{
+                  fontWeight: focused ? 'bold' : 'normal',
+                  color: focused ? '#F44336' : '#868B98',
+                }}>
                 Set Alarm
               </Text>
             </View>
@@ -62,9 +75,15 @@ const Tabs = () => {
               <MaterialCommunityIcons
                 name="alarm-light-outline"
                 size={30}
-                style={{color: focused ? 'white' : '#CFD6DE'}}
+                style={{color: focused ? '#F44336' : '#868B98'}}
               />
-              <Text style={{color: focused ? 'white' : '#CFD6DE'}}>View</Text>
+              <Text
+                style={{
+                  fontWeight: focused ? 'bold' : 'normal',
+                  color: focused ? '#F44336' : '#868B98',
+                }}>
+                View
+              </Text>
             </View>
           ),
         }}
