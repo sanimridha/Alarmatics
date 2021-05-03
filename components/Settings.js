@@ -180,26 +180,7 @@ const Settings = () => {
               color="#868B98"
               style={{alignSelf: 'center'}}
             />
-            <View style={{flexDirection: 'column'}}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: '#868B98',
-                  paddingLeft: 10,
-                }}>
-                Alarm Ringtone
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  // fontWeight: 'bold',
-                  color: '#868B98',
-                  paddingLeft: 10,
-                }}>
-                Go to settings
-              </Text>
-            </View>
+            <View style={{flexDirection: 'column'}}></View>
           </View>
           {/* rightArrow */}
           <View>
