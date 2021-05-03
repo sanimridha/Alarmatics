@@ -204,7 +204,7 @@ const Setalarm = ({navigation}) => {
   };
   const renderSaveButton = () => {
     return (
-      <View style={{alignItems: 'center', marginTop: 20}}>
+      <View style={{alignItems: 'center'}}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={{
