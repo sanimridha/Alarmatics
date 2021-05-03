@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -41,6 +41,8 @@ const Setalarm = ({navigation}) => {
         {/* section for setTime  */}
         <DatePicker
           style={{justifyContent: 'center', alignSelf: 'center'}}
+          mode={'time'}
+          androidVariant={'nativeAndroid'}
           date={date}
           onDateChange={setDate}
         />
