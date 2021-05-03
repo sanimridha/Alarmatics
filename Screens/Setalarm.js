@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Settings from '../components/Settings';
+import DatePicker from 'react-native-date-picker';
 
 const Setalarm = ({navigation}) => {
   const renderHeader = () => {
@@ -34,20 +35,15 @@ const Setalarm = ({navigation}) => {
     );
   };
   const renderSetAlarm = () => {
+    const [date, setDate] = useState(new Date());
     return (
       <View style={{}}>
         {/* section for setTime  */}
-        <View style={{alignItems: 'center', marginBottom: 20}}>
-          <Text style={{fontSize: 35, fontWeight: 'bold', color: '#868B98'}}>
-            10 {'         '}20
-          </Text>
-          <Text style={{fontSize: 40, fontWeight: 'bold'}}>
-            11 {'  '}: {'  '} 20
-          </Text>
-          <Text style={{fontSize: 35, fontWeight: 'bold', color: '#868B98'}}>
-            12 {'         '}20
-          </Text>
-        </View>
+        <DatePicker
+          style={{justifyContent: 'center', alignSelf: 'center'}}
+          date={date}
+          onDateChange={setDate}
+        />
         {/* section for setDate  */}
         <View
           style={{
@@ -203,7 +199,7 @@ const Setalarm = ({navigation}) => {
     <View>
       {renderHeader()}
       {renderSetAlarm()}
-      {renderSettings()}
+      {/* {renderSettings()} */}
     </View>
   );
 };
