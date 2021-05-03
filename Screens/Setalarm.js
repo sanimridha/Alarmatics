@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Settings from '../components/Settings';
@@ -11,7 +17,7 @@ const Setalarm = ({navigation}) => {
       <View
         style={{
           marginLeft: '2%',
-          height: '20%',
+          height: 65,
           justifyContent: 'center',
           marginBottom: 10,
         }}>
@@ -196,12 +202,42 @@ const Setalarm = ({navigation}) => {
       </View>
     );
   };
+  const renderSaveButton = () => {
+    return (
+      <View style={{alignItems: 'center', marginTop: 20}}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={{
+            backgroundColor: '#F44336',
+            width: '90%',
+            height: 60,
+            borderRadius: 10,
+            justifyContent: 'center',
+          }}
+          onPress={() => navigation.navigate('Home')}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 15,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              alignItems: 'center',
+            }}>
+            Save
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
   return (
     <View>
       {renderHeader()}
-      {renderSetAlarm()}
-      {/* {renderSettings()} */}
+      <ScrollView style={{}}>
+        {renderSetAlarm()}
+        {renderSettings()}
+      </ScrollView>
+      {renderSaveButton()}
     </View>
   );
 };
