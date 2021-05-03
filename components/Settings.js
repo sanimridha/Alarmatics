@@ -96,6 +96,9 @@ const Settings = () => {
           shadowOpacity: 0.25,
           shadowRadius: 3.84,
           elevation: 3,
+        }}
+        onPress={() => {
+          AndroidOpenSettings.dateSettings();
         }}>
         <View
           style={{
