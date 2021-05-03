@@ -21,6 +21,7 @@
     "react-native-check-box": "^2.1.7",
     "react-native-date-picker": "^3.2.10",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-notification-sounds": "^0.5.3",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.1",

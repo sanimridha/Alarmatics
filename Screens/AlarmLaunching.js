@@ -1,7 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import NotificationSounds, {
+  playSampleSound,
+} from 'react-native-notification-sounds';
 
 const AlarmLaunching = () => {
+  // const [dt, setDt] = useState(new Date().toLocaleString());
+  // clearInterval(dt);
+  // console.log(dt);
+
+  // useEffect(() => {
+  //   let secTimer = setInterval(() => {
+  //     setDt(new Date().toLocaleString());
+  //   }, 1000);
+  //   console.log(secTimer);
+  //   return () => clearInterval(secTimer);
+  // }, []);
+
+  /*
+get the list of System notification sounds. This function returns an array the array contains Title, Url, SoundID
+You can pass the following values to the getNotifications:
+1. notification: get the list of notification sounds
+2. ringtone: get the list of ringtones
+3. alarm: get the list of alarm sounds (android only)
+*/
+  NotificationSounds.getNotifications('alarm').then(soundsList => {
+    // console.warn('SOUNDS', JSON.stringify(soundsList));
+    /*
+	Play the notification sound.
+	pass the complete sound object.
+	This function can be used for playing the sample sound
+	*/
+    playSampleSound(soundsList);
+    // if you want to stop any playing sound just call:
+    // stopSampleSound();
+  });
   return (
     <View style={{backgroundColor: '#F2F2F2'}}>
       <View
