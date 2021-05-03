@@ -1,6 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Linking, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AndroidOpenSettings from 'react-native-android-open-settings';
 
 const Settings = () => {
   return (
@@ -24,6 +27,9 @@ const Settings = () => {
           shadowOpacity: 0.25,
           shadowRadius: 3.84,
           elevation: 3,
+        }}
+        onPress={() => {
+          AndroidOpenSettings.generalSettings();
         }}>
         <View
           style={{
@@ -99,8 +105,8 @@ const Settings = () => {
             alignItems: 'center',
           }}>
           <View style={{paddingLeft: 20, flexDirection: 'row'}}>
-            <MaterialCommunityIcons
-              name="bell-ring-outline"
+            <Feather
+              name="settings"
               size={30}
               color="#868B98"
               style={{alignSelf: 'center'}}
@@ -113,7 +119,7 @@ const Settings = () => {
                   color: '#868B98',
                   paddingLeft: 10,
                 }}>
-                Alarm Ringtone
+                Edit system time
               </Text>
               <Text
                 style={{
@@ -165,8 +171,8 @@ const Settings = () => {
             alignItems: 'center',
           }}>
           <View style={{paddingLeft: 20, flexDirection: 'row'}}>
-            <MaterialCommunityIcons
-              name="bell-ring-outline"
+            <Ionicons
+              name="ios-volume-high-outline"
               size={30}
               color="#868B98"
               style={{alignSelf: 'center'}}
