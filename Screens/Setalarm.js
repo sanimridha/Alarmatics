@@ -11,8 +11,56 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import Settings from '../components/Settings';
 import DatePicker from 'react-native-date-picker';
+import {createIconSetFromFontello} from 'react-native-vector-icons';
 
 const Setalarm = ({navigation}) => {
+  const [date, setDate] = useState(new Date());
+
+  const [activeDays, setActiveDays] = useState([
+    {
+      id: 1,
+      day: 'Sunday',
+      text: 'S',
+      active: false,
+    },
+    {
+      id: 2,
+      day: 'Monday',
+      text: 'M',
+      active: true,
+    },
+    {
+      id: 3,
+      day: 'Tuesday', //Tuesday, Wednesday, Thursday, Friday,
+      text: 'T',
+      active: true,
+    },
+    {
+      id: 4,
+      day: 'Wednesday',
+      text: 'W',
+      active: true,
+    },
+    {
+      id: 5,
+      day: 'Thursday',
+      text: 'T',
+      active: true,
+    },
+    {
+      id: 6,
+      day: 'Friday',
+      text: 'F',
+      active: true,
+    },
+    {
+      id: 7,
+      day: 'Saturday',
+      text: 'S',
+      active: false,
+    },
+  ]);
+
   const renderHeader = () => {
     return (
       <View
@@ -42,52 +90,6 @@ const Setalarm = ({navigation}) => {
     );
   };
   const renderSetAlarm = () => {
-    const [date, setDate] = useState(new Date());
-    const [activeDays, setActiveDays] = useState([
-      {
-        id: 1,
-        day: 'Sunday',
-        text: 'S',
-        active: 0,
-      },
-      {
-        id: 2,
-        day: 'Monday',
-        text: 'M',
-        active: true,
-      },
-      {
-        id: 3,
-        day: 'Tuesday', //Tuesday, Wednesday, Thursday, Friday,
-        text: 'T',
-        active: true,
-      },
-      {
-        id: 4,
-        day: 'Wednesday',
-        text: 'W',
-        active: true,
-      },
-      {
-        id: 5,
-        day: 'Thursday',
-        text: 'T',
-        active: true,
-      },
-      {
-        id: 6,
-        day: 'Friday',
-        text: 'F',
-        active: true,
-      },
-      {
-        id: 7,
-        day: 'Saturday',
-        text: 'S',
-        active: false,
-      },
-    ]);
-
     return (
       <View style={{}}>
         {/* section for setTime  */}
@@ -97,7 +99,9 @@ const Setalarm = ({navigation}) => {
           androidVariant={'nativeAndroid'}
           date={date}
           onDateChange={setDate}
+          is24hourSource={'device'}
         />
+        {console.log(date)}
         {/* section for setDate  */}
         <View
           style={{
@@ -112,13 +116,13 @@ const Setalarm = ({navigation}) => {
               flexDirection: 'row',
             }}>
             {activeDays.map((item, k) => {
+              console.log(item);
               return (
                 <TouchableOpacity
                   key={k}
                   onPress={() => {
-                    // if (item.active == 0) {
-                    //   setActiveDays(1);
-                    // }
+                    console.log(item.id);
+                    // Sunday
                   }}
                   activeOpacity={0.8}
                   style={{
@@ -181,7 +185,7 @@ const Setalarm = ({navigation}) => {
   };
   const renderSaveButton = () => {
     return (
-      <View style={{alignItems: 'center', justifyContent: 'flex-end'}}>
+      <View style={{alignItems: 'center'}}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={{
