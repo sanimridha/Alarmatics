@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
+  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -42,6 +43,51 @@ const Setalarm = ({navigation}) => {
   };
   const renderSetAlarm = () => {
     const [date, setDate] = useState(new Date());
+    const [activeDays, setActiveDays] = useState([
+      {
+        id: 1,
+        day: 'Saturday',
+        text: 'S',
+        active: 0,
+      },
+      {
+        id: 2,
+        day: 'Sunday',
+        text: 'S',
+        active: 0,
+      },
+      {
+        id: 3,
+        day: 'Monday',
+        text: 'M',
+        active: 1,
+      },
+      {
+        id: 4,
+        day: 'Tuesday', //Tuesday, Wednesday, Thursday, Friday,
+        text: 'T',
+        active: 1,
+      },
+      {
+        id: 5,
+        day: 'Wednesday',
+        text: 'W',
+        active: 1,
+      },
+      {
+        id: 6,
+        day: 'Thursday',
+        text: 'T',
+        active: 1,
+      },
+      {
+        id: 7,
+        day: 'Friday',
+        text: 'F',
+        active: 1,
+      },
+    ]);
+
     return (
       <View style={{}}>
         {/* section for setTime  */}
@@ -197,14 +243,14 @@ const Setalarm = ({navigation}) => {
 
   const renderSettings = () => {
     return (
-      <View>
+      <View style={{paddingBottom: 20}}>
         <Settings />
       </View>
     );
   };
   const renderSaveButton = () => {
     return (
-      <View style={{alignItems: 'center'}}>
+      <View style={{alignItems: 'center', justifyContent: 'flex-end'}}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={{
