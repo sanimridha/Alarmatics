@@ -46,45 +46,45 @@ const Setalarm = ({navigation}) => {
     const [activeDays, setActiveDays] = useState([
       {
         id: 1,
-        day: 'Saturday',
-        text: 'S',
-        active: 0,
-      },
-      {
-        id: 2,
         day: 'Sunday',
         text: 'S',
         active: 0,
       },
       {
-        id: 3,
+        id: 2,
         day: 'Monday',
         text: 'M',
-        active: 1,
+        active: true,
+      },
+      {
+        id: 3,
+        day: 'Tuesday', //Tuesday, Wednesday, Thursday, Friday,
+        text: 'T',
+        active: true,
       },
       {
         id: 4,
-        day: 'Tuesday', //Tuesday, Wednesday, Thursday, Friday,
-        text: 'T',
-        active: 1,
+        day: 'Wednesday',
+        text: 'W',
+        active: true,
       },
       {
         id: 5,
-        day: 'Wednesday',
-        text: 'W',
-        active: 1,
+        day: 'Thursday',
+        text: 'T',
+        active: true,
       },
       {
         id: 6,
-        day: 'Thursday',
-        text: 'T',
-        active: 1,
+        day: 'Friday',
+        text: 'F',
+        active: true,
       },
       {
         id: 7,
-        day: 'Friday',
-        text: 'F',
-        active: 1,
+        day: 'Saturday',
+        text: 'S',
+        active: false,
       },
     ]);
 
@@ -111,104 +111,35 @@ const Setalarm = ({navigation}) => {
               justifyContent: 'space-between',
               flexDirection: 'row',
             }}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#ABBAD9',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                S
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#CD0023',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                M
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#CD0023',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                T
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#CD0023',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                W
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#CD0023',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                T
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#CD0023',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                F
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#ABBAD9',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 8,
-              }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                S
-              </Text>
-            </TouchableOpacity>
+            {activeDays.map((item, k) => {
+              return (
+                <TouchableOpacity
+                  key={k}
+                  onPress={() => {
+                    // if (item.active == 0) {
+                    //   setActiveDays(1);
+                    // }
+                  }}
+                  activeOpacity={0.8}
+                  style={{
+                    height: 40,
+                    width: 40,
+                    backgroundColor: item.active == 1 ? '#CD0023' : '#ABBAD9',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 8,
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      color: 'white',
+                    }}>
+                    {item.text}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </View>
         {/* next ring in time  */}
