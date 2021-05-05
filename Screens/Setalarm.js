@@ -80,7 +80,7 @@ const Setalarm = ({navigation}) => {
           <View style={{alignSelf: 'center', marginRight: '2%'}}>
             <TouchableOpacity
               activeOpacity={0.5}
-              onPress={() => navigation.navigate('Launching')}
+              onPress={() => navigation.navigate('Launching', date)}
               style={{}}>
               <Feather name="eye" size={25} />
             </TouchableOpacity>
@@ -195,7 +195,7 @@ const Setalarm = ({navigation}) => {
             borderRadius: 10,
             justifyContent: 'center',
           }}
-          onPress={() => navigation.navigate('Home')}>
+          onPress={() => navigation.navigate('Home', date)}>
           <Text
             style={{
               color: 'white',
