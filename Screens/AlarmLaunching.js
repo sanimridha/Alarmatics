@@ -29,30 +29,30 @@ const AlarmLaunching = ({route, navigation}) => {
   // const {date} = route.params;
   const [currentTime, setCurrentTime] = useState();
 
-  // useEffect(() => {
-  /*
+  useEffect(() => {
+    /*
 get the list of System notification sounds. This function returns an array the array contains Title, Url, SoundID
 You can pass the following values to the getNotifications:
 1. notification: get the list of notification sounds
 2. ringtone: get the list of ringtones
 3. alarm: get the list of alarm sounds (android only)
 */
-  // NotificationSounds.getNotifications('alarm').then(soundsList => {
-  // console.warn('SOUNDS', JSON.stringify(soundsList));
-  /*
+    NotificationSounds.getNotifications('alarm').then(soundsList => {
+      // console.warn('SOUNDS', JSON.stringify(soundsList));
+      /*
 	Play the notification sound.
 	pass the complete sound object.
 	This function can be used for playing the sample sound
 	*/
-  // playSampleSound(soundsList[10]);
-  // console.log('Alarming!');
-  // if you want to stop any playing sound just call:
-  // });
-  // var time = moment().format('hh:mm:ss');
-  // setCurrentTime(time);
-  // console.log(time);
-  // return () => clearInterval(secTimer);
-  // });
+      playSampleSound(soundsList[11]);
+      // console.log('Alarming!');
+      // if you want to stop any playing sound just call:
+    });
+    // var time = moment().format('hh:mm:ss');
+    // setCurrentTime(time);
+    // console.log(time);
+    // return () => clearInterval(secTimer);
+  }, []);
 
   // -------------Showing current time---------------------
   useEffect(() => {
@@ -61,25 +61,25 @@ You can pass the following values to the getNotifications:
       setCurrentTime(time);
     }, 1000);
   }, 1000);
-  useEffect(() => {
-    let date = new Date();
-    date.setDate(date.getDate());
-    date.setHours(16, 14);
+  // useEffect(() => {
+  //   let date = new Date();
+  //   date.setDate(date.getDate());
+  //   date.setHours(16, 14);
 
-    AlarmClock.createAlarm(date.toISOString(), 'My Custom Alarm');
-    // async () => {
-    //   //Schedule Future Alarm
-    //   const alarm = await ReactNativeAN.scheduleAlarm({
-    //     ...alarmNotifData,
-    //     fire_date: fireDate,
-    //   });
-    //   console.log(alarm); // { id: 1 }
-    //   //Send Local Notification Now
-    //   ReactNativeAN.sendNotification(alarmNotifData);
-    //   //Get All Scheduled Alarms
-    //       const alarms = await ReactNativeAN.getScheduledAlarms();
-    // }
-  }, []);
+  //   AlarmClock.createAlarm(date.toISOString(), 'My Custom Alarm');
+  //   // async () => {
+  //   //   //Schedule Future Alarm
+  //   //   const alarm = await ReactNativeAN.scheduleAlarm({
+  //   //     ...alarmNotifData,
+  //   //     fire_date: fireDate,
+  //   //   });
+  //   //   console.log(alarm); // { id: 1 }
+  //   //   //Send Local Notification Now
+  //   //   ReactNativeAN.sendNotification(alarmNotifData);
+  //   //   //Get All Scheduled Alarms
+  //   //       const alarms = await ReactNativeAN.getScheduledAlarms();
+  //   // }
+  // }, []);
   return (
     <View style={{backgroundColor: '#F2F2F2'}}>
       <View

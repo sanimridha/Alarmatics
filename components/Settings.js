@@ -7,7 +7,7 @@ import AndroidOpenSettings from 'react-native-android-open-settings';
 
 const Settings = () => {
   return (
-    <View style={{marginBottom: 10}}>
+    <View style={{marginBottom: 60}}>
       <TouchableOpacity
         activeOpacity={0.8}
         style={{
