@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Switch,
   Dimensions,
 } from 'react-native';
 
@@ -15,6 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AndroidOpenSettings from 'react-native-android-open-settings';
 import VolumeControl, {VolumeControlEvents} from 'react-native-volume-control';
 import Slider from '@react-native-community/slider';
+import CustomSwitch from '../components/CustomSwitch';
 
 const {width, height} = Dimensions.get('window');
 // const Settings = () => {
@@ -52,14 +52,6 @@ class Settings extends React.Component {
   }
   // ______________________________________________
   render() {
-    this.state = {
-      vibrationIsEnabled: false,
-    };
-
-    const toggleSwitch = value => {
-      this.setState(previousState => !previousState);
-      console.log('Switch 1 is: ' + value);
-    };
     return (
       <View style={{}}>
         <TouchableOpacity
@@ -254,12 +246,7 @@ class Settings extends React.Component {
             <View>
               <MaterialCommunityIcons name="vibrate" size={25} style={{}} />
             </View>
-            <Switch
-              trackColor={{false: '#767577', true: '#81b0ff'}}
-              thumbColor={this.vibrationIsEnabled ? '#f5dd4b' : '#f4f3f4'}
-              onValueChange={this.toggleSwitch}
-              value={this.vibrationIsEnabled}
-            />
+            <CustomSwitch />
           </View>
         </TouchableOpacity>
       </View>
