@@ -192,7 +192,7 @@ class Settings extends React.Component {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity
+        <View
           activeOpacity={0.8}
           style={{
             height: 70,
@@ -244,11 +244,15 @@ class Settings extends React.Component {
             </View>
             {/* rightArrow */}
             <View>
-              <MaterialCommunityIcons name="vibrate" size={25} style={{}} />
+              <MaterialCommunityIcons
+                name="vibrate"
+                size={25}
+                style={{marginLeft: '15%'}}
+              />
             </View>
             <CustomSwitch />
           </View>
-        </TouchableOpacity>
+        </View>
       </View>
     );
   }
