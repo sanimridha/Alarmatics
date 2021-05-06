@@ -66,7 +66,7 @@ const Setalarm = ({navigation}) => {
       <View
         style={{
           marginLeft: '2%',
-          height: 65,
+          // height: 65,
           justifyContent: 'center',
           marginBottom: 10,
         }}>
@@ -126,8 +126,8 @@ const Setalarm = ({navigation}) => {
                   }}
                   activeOpacity={0.8}
                   style={{
-                    height: 40,
-                    width: 40,
+                    height: '100%',
+                    width: '13%',
                     backgroundColor: item.active == 1 ? '#CD0023' : '#ABBAD9',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -213,12 +213,14 @@ const Setalarm = ({navigation}) => {
 
   return (
     <View>
-      {renderHeader()}
-      <ScrollView style={{}}>
+      <View style={{height: '10%'}}>{renderHeader()}</View>
+      <ScrollView style={{height: '78%'}}>
         {renderSetAlarm()}
         {renderSettings()}
       </ScrollView>
-      {renderSaveButton()}
+      <View style={{height: '10%', justifyContent: 'center'}}>
+        {renderSaveButton()}
+      </View>
     </View>
   );
 };
