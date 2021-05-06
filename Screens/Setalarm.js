@@ -15,6 +15,29 @@ import {createIconSetFromFontello} from 'react-native-vector-icons';
 
 const Setalarm = ({navigation}) => {
   const [date, setDate] = useState(new Date());
+  const [volume, setVolume] = useState(0);
+  //   useEffect(() => {
+  //     const getVolume = async()=>{
+  //       await setVolume(VolumeControl.getVolume())
+
+  //       // Add and store event listener
+  //     this.volEvent = VolumeControlEvents.addListener(
+  //       "VolumeChanged",
+  //       this.volumeEvent
+  //     );
+  //   }
+  //   // Updates Slider UI when hardware buttons change volume
+  // // volumeEvent = event => {
+  // // this.setState({ volume: event.volume });
+  // // };
+  // // Updates device volume
+  // sliderChange(value){
+  // VolumeControl.change(value)
+  // }
+  //     return () => {
+
+  //     }
+  //   }, [])
 
   const [activeDays, setActiveDays] = useState([
     {
