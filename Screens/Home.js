@@ -10,9 +10,10 @@ import CheckBox from 'react-native-check-box';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Dots from 'react-native-vector-icons/Entypo';
 
-const Home = ({navigation}) => {
+const Home = ({navigation, props}) => {
+  // const {date} = props.params;
   const [isSelected, setSelection] = useState(false);
-
+  // console.log(date);
   const renderHeader = () => {
     return (
       <View

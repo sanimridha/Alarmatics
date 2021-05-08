@@ -12,32 +12,12 @@ import Feather from 'react-native-vector-icons/Feather';
 import Settings from '../components/Settings';
 import DatePicker from 'react-native-date-picker';
 import {createIconSetFromFontello} from 'react-native-vector-icons';
+import {set} from 'react-native-reanimated';
 
 const Setalarm = ({navigation}) => {
   const [date, setDate] = useState(new Date());
-  const [volume, setVolume] = useState(0);
-  //   useEffect(() => {
-  //     const getVolume = async()=>{
-  //       await setVolume(VolumeControl.getVolume())
 
-  //       // Add and store event listener
-  //     this.volEvent = VolumeControlEvents.addListener(
-  //       "VolumeChanged",
-  //       this.volumeEvent
-  //     );
-  //   }
-  //   // Updates Slider UI when hardware buttons change volume
-  // // volumeEvent = event => {
-  // // this.setState({ volume: event.volume });
-  // // };
-  // // Updates device volume
-  // sliderChange(value){
-  // VolumeControl.change(value)
-  // }
-  //     return () => {
-
-  //     }
-  //   }, [])
+  const [alarmTime, setalarmTime] = useState([{}]);
 
   const [activeDays, setActiveDays] = useState([
     {
@@ -124,7 +104,7 @@ const Setalarm = ({navigation}) => {
           onDateChange={setDate}
           is24hourSource={'device'}
         />
-        {console.log(date)}
+
         {/* section for setDate  */}
         <View
           style={{
@@ -139,13 +119,12 @@ const Setalarm = ({navigation}) => {
               flexDirection: 'row',
             }}>
             {activeDays.map((item, k) => {
-              console.log(item);
               return (
                 <TouchableOpacity
                   key={k}
                   onPress={() => {
-                    console.log(item.id);
-                    // Sunday
+                    // const value = !item.active;
+                    // setActiveDays(value);
                   }}
                   activeOpacity={0.8}
                   style={{
@@ -218,7 +197,11 @@ const Setalarm = ({navigation}) => {
             borderRadius: 10,
             justifyContent: 'center',
           }}
-          onPress={() => navigation.navigate('Home', date)}>
+          onPress={() => {
+            navigation.navigate('Home', date);
+            setalarmTime(oldArray => [...oldArray, date]);
+            // console.log(' alarm will be held in ' + alarmTime);
+          }}>
           <Text
             style={{
               color: 'white',
