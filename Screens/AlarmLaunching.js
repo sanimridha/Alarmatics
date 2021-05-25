@@ -1,6 +1,12 @@
 import moment from 'moment';
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import NotificationSounds, {
   playSampleSound,
   stopSampleSound,
@@ -28,6 +34,8 @@ import AlarmClock from 'react-native-alarm-clock';
 const AlarmLaunching = ({route, navigation}) => {
   // const {date} = route.params;
   const [currentTime, setCurrentTime] = useState();
+  const [disableState, setDisableState] = useState(0);
+  const [errorMessage, setErrorMessage] = useState('Dismiss');
 
   useEffect(() => {
     /*
@@ -60,32 +68,61 @@ You can pass the following values to the getNotifications:
           {currentTime}
         </Text>
       </View>
-      <View style={{alignItems: 'center'}}>
-        <TouchableOpacity
-          onPress={() => {
-            stopSampleSound();
-            navigation.navigate('Setalarm');
-          }}
-          activeOpacity={0.8}
-          style={{
-            backgroundColor: '#F44336',
-            width: '70%',
-            height: 60,
-            borderRadius: 10,
-            justifyContent: 'center',
-          }}>
-          <Text
+      {disableState == 0 && (
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            onPress={() => {
+              setErrorMessage('Solve the pattern first');
+            }}
+            activeOpacity={1}
             style={{
-              color: 'white',
-              fontSize: 15,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              alignItems: 'center',
+              backgroundColor: '#F44336',
+              width: '70%',
+              height: 60,
+              borderRadius: 10,
+              justifyContent: 'center',
             }}>
-            Dismiss
-          </Text>
-        </TouchableOpacity>
-      </View>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 15,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                alignItems: 'center',
+              }}>
+              {errorMessage}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
+      {disableState == 1 && (
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            onPress={() => {
+              stopSampleSound();
+              navigation.navigate('Setalarm');
+            }}
+            activeOpacity={0.8}
+            style={{
+              backgroundColor: '#F44336',
+              width: '70%',
+              height: 60,
+              borderRadius: 10,
+              justifyContent: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 15,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                alignItems: 'center',
+              }}>
+              Dismiss
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
