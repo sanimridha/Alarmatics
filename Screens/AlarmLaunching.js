@@ -13,6 +13,7 @@ import NotificationSounds, {
 } from 'react-native-notification-sounds';
 // import ReactNativeAN from 'react-native-alarm-notification';
 import AlarmClock from 'react-native-alarm-clock';
+import {RNLockScreen} from 'react-native-lock-screen';
 
 // ------------------Alarm datas---------------
 // const fireDate = ReactNativeAN.parseDate(new Date(Date.now() + 1000)); // set the fire date for 1 second from now
@@ -45,9 +46,9 @@ You can pass the following values to the getNotifications:
 2. ringtone: get the list of ringtones
 3. alarm: get the list of alarm sounds (android only)
 */
-    NotificationSounds.getNotifications('alarm').then(soundsList => {
-      playSampleSound(soundsList[11]);
-    });
+    // NotificationSounds.getNotifications('alarm').then(soundsList => {
+    //   playSampleSound(soundsList[11]);
+    // });
   }, []);
 
   // -------------Showing current time---------------------
@@ -58,20 +59,30 @@ You can pass the following values to the getNotifications:
     }, 1000);
   }, 1000);
   return (
-    <View style={{backgroundColor: '#F2F2F2'}}>
-      <View
+    <View style={{backgroundColor: '#F2F2F2', flex: 1}}>
+      {/* <View
         style={{
           alignItems: 'center',
           height: '90%',
-        }}>
-        <Text style={{fontSize: 70, top: 40, fontWeight: 'bold'}}>
+        }}> */}
+      {/* <Text style={{fontSize: 70, top: 40, fontWeight: 'bold'}}>
           {currentTime}
-        </Text>
-      </View>
-      {disableState == 0 && (
+        </Text> */}
+
+      <RNLockScreen
+        type={RNLockScreen.Type.Pattern}
+        mode={RNLockScreen.Mode.Capture}
+        onCapture={lock => {}}
+        onVerified={() => {}}
+        lock={'1234'}
+      />
+      {/* </View> */}
+
+      {/* {disableState == 0 && (
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity
             onPress={() => {
+              stopSampleSound();
               setErrorMessage('Solve the pattern first');
             }}
             activeOpacity={1}
@@ -122,7 +133,7 @@ You can pass the following values to the getNotifications:
             </Text>
           </TouchableOpacity>
         </View>
-      )}
+      )} */}
     </View>
   );
 };
